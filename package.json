@@ -1,0 +1,19 @@
+
+{
+  "name": "react-native-mi-rsa",
+  "version": "0.0.1",
+  "description": "mi-rsa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiongxiong/mi-rsa.git#0.0.1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "",
+  "license": ""
+}
