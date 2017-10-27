@@ -1,12 +1,12 @@
 
 package com.wonderbear.mirsa;
 
-import android.util.Base64;
-
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+
+import org.bouncycastle.util.encoders.Base64;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -59,7 +59,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void generateBase64PublicKey(Callback callback) {
         RSAPublicKey key = (RSAPublicKey) keyPair.getPublic();
-        callback.invoke(new String(Base64.encode(key.getEncoded(), Base64.DEFAULT)));
+        callback.invoke(Base64.toBase64String(key.getEncoded()));
     }
 
     /**
@@ -70,7 +70,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void generateBase64PrivateKey(Callback callback) {
         RSAPrivateKey key = (RSAPrivateKey) keyPair.getPrivate();
-        callback.invoke(new String(Base64.encode(key.getEncoded(), Base64.DEFAULT)));
+        callback.invoke(Base64.toBase64String(key.getEncoded()));
     }
 
     /**
@@ -81,12 +81,12 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
      */
     @ReactMethod
     public void encryptBase64(String string, String keyStr, Callback callback) {
-        callback.invoke(new String(encrypt(Base64.decode(string, Base64.DEFAULT), keyStr)));
+        callback.invoke(Base64.toBase64String(encrypt(Base64.decode(string), keyStr)));
     }
 
     @ReactMethod
     private void encrypt(String str, String keyStr, Callback callback) {
-        callback.invoke(new String(encrypt(str.getBytes(), keyStr)));
+        callback.invoke(Base64.toBase64String(encrypt(str.getBytes(), keyStr)));
     }
 
     private byte[] encrypt(byte[] str, String keyStr) {
@@ -123,12 +123,12 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
      */
     @ReactMethod
     public void decryptBase64(String string, String keyStr, Callback callback) {
-        callback.invoke(new String(decrypt(Base64.decode(string, Base64.DEFAULT), keyStr)));
+        callback.invoke(new String(decrypt(Base64.decode(string), keyStr)));
     }
 
     @ReactMethod
     private void decrypt(String str, String keyStr, Callback callback) {
-        callback.invoke(new String(decrypt(str.getBytes(), keyStr)));
+        callback.invoke(new String(decrypt(Base64.decode(str), keyStr)));
     }
 
     private byte[] decrypt(byte[] str, String keyStr) {
@@ -166,7 +166,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
             str += s + "\r";
             s = br.readLine();
         }
-        byte[] b = Base64.decode(str, Base64.DEFAULT);
+        byte[] b = Base64.decode(str);
 
         // 生成私匙
         KeyFactory kf = KeyFactory.getInstance("RSA");
@@ -176,7 +176,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
     }
 
     public PrivateKey getPrivateKeyFromPemStr(String keyStr) throws Exception {
-        byte[] b = Base64.decode(keyStr, Base64.DEFAULT);
+        byte[] b = Base64.decode(keyStr);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(b);
         PrivateKey privateKey = kf.generatePrivate(keySpec);
@@ -192,7 +192,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
             str += s + "\r";
             s = br.readLine();
         }
-        byte[] b = Base64.decode(str, Base64.DEFAULT);
+        byte[] b = Base64.decode(str);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(b);
         PublicKey pubKey = kf.generatePublic(keySpec);
@@ -200,7 +200,7 @@ public class RNMiRsaModule extends ReactContextBaseJavaModule {
     }
 
     public PublicKey getPublicKeyFromPemStr(String keyStr) throws Exception {
-        byte[] b = Base64.decode(keyStr, Base64.DEFAULT);
+        byte[] b = Base64.decode(keyStr);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(b);
         PublicKey pubKey = kf.generatePublic(keySpec);
