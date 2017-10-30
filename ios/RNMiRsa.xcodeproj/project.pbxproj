@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42F0C8C41FA38362002628D8 /* XRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F0C8C21FA38362002628D8 /* XRSA.m */; };
+		42E369161FA6EED9000FFFF8 /* RNMiRsaEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E369151FA6EED9000FFFF8 /* RNMiRsaEventEmitter.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNMiRsa.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNMiRsa.m */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +25,8 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNMiRsa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNMiRsa.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		42E368BC1FA6D39C000FFFF8 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		42E368D11FA6D41C000FFFF8 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		42F0C8C21FA38362002628D8 /* XRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRSA.m; sourceTree = "<group>"; };
-		42F0C8C31FA38362002628D8 /* XRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRSA.h; sourceTree = "<group>"; };
+		42E369141FA6EED9000FFFF8 /* RNMiRsaEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMiRsaEventEmitter.h; sourceTree = "<group>"; };
+		42E369151FA6EED9000FFFF8 /* RNMiRsaEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNMiRsaEventEmitter.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNMiRsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNMiRsa.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNMiRsa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNMiRsa.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,8 +53,6 @@
 		42F0C8C81FA54115002628D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42E368D11FA6D41C000FFFF8 /* libReact.a */,
-				42E368BC1FA6D39C000FFFF8 /* libReact.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -64,8 +60,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				42F0C8C31FA38362002628D8 /* XRSA.h */,
-				42F0C8C21FA38362002628D8 /* XRSA.m */,
+				42E369141FA6EED9000FFFF8 /* RNMiRsaEventEmitter.h */,
+				42E369151FA6EED9000FFFF8 /* RNMiRsaEventEmitter.m */,
 				B3E7B5881CC2AC0600A0062D /* RNMiRsa.h */,
 				B3E7B5891CC2AC0600A0062D /* RNMiRsa.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -129,8 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E369161FA6EED9000FFFF8 /* RNMiRsaEventEmitter.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNMiRsa.m in Sources */,
-				42F0C8C41FA38362002628D8 /* XRSA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { NativeModules } from 'react-native';
+import {NativeModules} from 'react-native';
 
-const { RNMiRsa } = NativeModules;
+const {RNMiRsa, RNMiRsaEventEmitter: _RNMiRsaEventEmitter} = NativeModules;
+const RNMiRsaEventEmitter = new NativeEventEmitter(_RNMiRsaEventEmitter);
 
-export default RNMiRsa;
+export default {RNMiRsa, RNMiRsaEventEmitter};
